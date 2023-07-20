@@ -52,8 +52,8 @@ public class Main {
                            // Notebook.addNotebook();
                             break;
                         case 2:
-                            //TreeSet<Notebook> notebooks = Notebook.List();
-                            // Notebook.printNotebookTable(notebooks);
+                            TreeSet<Phone> phones = Phone.List();
+                            Phone.printPhoneTable(phones);
                             break;
                         case 3:
                             System.out.println("Going back to the main menu.");
@@ -63,6 +63,7 @@ public class Main {
                             break;
                     }
                     break;
+
                 case 3:
                     System.out.println("Brand List:");
                     TreeSet<Brand> brands = Brand.brandList();

@@ -1,3 +1,5 @@
+import java.util.UUID;
+
 public class Product {
     public String uniqueCode;
     public double unitPrice;
@@ -9,7 +11,6 @@ public class Product {
     public int RAM;
 
     public Product(String uniqueCode, double unitPrice, int discountRate, int amountOfStock, String productName, String brandInfo, double screenSize, int RAM) {
-        this.uniqueCode = uniqueCode;
         this.unitPrice = unitPrice;
         this.discountRate = discountRate;
         this.amountOfStock = amountOfStock;
@@ -17,6 +18,8 @@ public class Product {
         this.brandInfo = brandInfo;
         this.screenSize = screenSize;
         this.RAM = RAM;
+        this.uniqueCode = generateUniqueCode();
+
     }
 
     public String getUniqueCode() {
@@ -81,5 +84,8 @@ public class Product {
 
     public void setRAM(int RAM) {
         this.RAM = RAM;
+    }
+    private String generateUniqueCode() {
+        return UUID.randomUUID().toString();
     }
 }

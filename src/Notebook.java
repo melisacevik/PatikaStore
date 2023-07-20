@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Notebook extends Product {
     private static TreeSet<Notebook> notebooks = new TreeSet<>(new OrderNotebookComparator());
-
     private static int nextNotebookID = 1;
     public int storage;
     public int notebookID;
