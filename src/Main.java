@@ -49,8 +49,8 @@ public class Main {
                     int phoneOperation = scan.nextInt();
                     switch (phoneOperation) {
                         case 1:
-                           // Notebook.addNotebook();
-                            break;
+                           TreeSet<Phone> tempPhones = Phone.addPhone();
+                           break;
                         case 2:
                             TreeSet<Phone> phones = Phone.List();
                             Phone.printPhoneTable(phones);

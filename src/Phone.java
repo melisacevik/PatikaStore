@@ -1,13 +1,12 @@
+import com.sun.source.tree.Tree;
+
 import java.util.Scanner;
 import java.util.TreeSet;
-import java.util.UUID;
-
 public class Phone extends Product {
     private static TreeSet<Phone> phones = new TreeSet<>(new OrderPhoneComparator());
     private static int nextPhoneID = 1;
     public int phoneID;
 
-    private String serialNumber;
     public String internalMemory;
     public double batteryStatus;
     public int camera;
@@ -43,8 +42,9 @@ public class Phone extends Product {
         return color;
     }
 
-    public static void addPhone() {
+    public static TreeSet<Phone> addPhone() {
         Scanner scan = new Scanner(System.in);
+        TreeSet<Phone> tempPhones = new TreeSet<>(new OrderPhoneComparator());
 
         System.out.println("Enter Brand Info:");
         String brandInfo = scan.next();
@@ -145,9 +145,13 @@ public class Phone extends Product {
         Phone newPhone = new Phone(unitPrice, discountRate, amountOfStock, productName, brandInfo, screenSize, RAM, internalMemory, batteryStatus, camera, color);
         phones.add(newPhone);
         System.out.println("New phone has been added successfully.");
+
+        return tempPhones;
     }
 
-    public static TreeSet<Phone> userAddList() {
+    /*
+    public static TreeSet<Phone> userAddPhone() {
+
         for (Phone phone : phones) {
             System.out.println("Phone ID: " + phone.getPhoneID());
             System.out.println("Product Name: " + phone.getProductName());
@@ -160,11 +164,14 @@ public class Phone extends Product {
             System.out.println("Color: " + phone.getColor());
             System.out.println("---------------------------------------------");
         }
-        return phones;
+        return tempPhones;
     }
+
+     */
 
     public static TreeSet<Phone> List() {
         System.out.println("\t\t\t\t\t\t\tPhones List");
+
         TreeSet<Phone> phones = new TreeSet<>(new OrderPhoneComparator());
 
         phones.add(new Phone(7000.0, 0, 0, "Samsung Galaxy S21", "Samsung", 6.2, 8, "128 GB", 90.5, 12, "Black"));
@@ -196,6 +203,7 @@ public class Phone extends Product {
     }
 
 
+    /*
     public static void removePhone() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter the unique code of the phone to remove:");
@@ -216,6 +224,8 @@ public class Phone extends Product {
             System.out.println("Phone with unique code " + uniqueCode + " was not found.");
         }
     }
+
+     */
 
 }
 
